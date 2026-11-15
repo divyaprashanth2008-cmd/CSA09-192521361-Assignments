@@ -1,0 +1,6 @@
+import java.util.*;
+public class Task05 {
+ static class Team {final String name;final int points,goalDiff;Team(String n,int p,int g){name=n;points=p;goalDiff=g;}public String toString(){return name+"("+points+","+goalDiff+")";}}
+ static class Leaderboard<T>{final List<T> items=new ArrayList<>();final Comparator<? super T> order;Leaderboard(Comparator<? super T> c){order=c;}void add(T x){items.add(x);}List<T> ranking(){List<T> copy=new ArrayList<>(items);copy.sort(order);return copy;}void addAll(List<? extends T> xs){items.addAll(xs);}}
+ public static void main(String[] a){Comparator<Team> order=Comparator.comparingInt((Team t)->t.points).reversed().thenComparing(Comparator.comparingInt((Team t)->t.goalDiff).reversed()).thenComparing(t->t.name);Leaderboard<Team> lb=new Leaderboard<>(order);lb.addAll(List.of(new Team("Falcons",12,5),new Team("Tigers",12,8),new Team("Wolves",9,4),new Team("Eagles",12,8),new Team("Bears",9,4)));System.out.println("Ranking: "+lb.ranking());System.out.println("Original insertion order unchanged: "+lb.items);}
+}

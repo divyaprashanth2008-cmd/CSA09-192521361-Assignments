@@ -1,0 +1,5 @@
+import java.util.*;
+public class Task07 {
+ // Redesign example: repeated linear membership scan -> HashSet membership index.
+ public static void main(String[] a){int n=100000;List<String> scans=new ArrayList<>();for(int i=0;i<n;i++)scans.add("ID"+(i%50000));long t=System.nanoTime();Set<String> oldUnique=new HashSet<>();for(String id:scans){if(!oldUnique.contains(id))oldUnique.add(id);}long indexed=System.nanoTime()-t;t=System.nanoTime();List<String> unique=new ArrayList<>();for(String id:scans){if(!unique.contains(id))unique.add(id);}long linear=System.nanoTime()-t;System.out.println("Input scans="+n+", unique="+oldUnique.size());System.out.println("Indexed HashSet approach="+indexed+"ns");System.out.println("Linear list membership approach="+linear+"ns");System.out.println("Note: run repeatedly; JVM warm-up and machine load affect timings.");}
+}

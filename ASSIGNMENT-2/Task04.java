@@ -1,0 +1,6 @@
+import java.util.*;
+public class Task04 {
+ static class Medicine {String code; int stock; Medicine(String c,int s){code=c;stock=s;}}
+ static long lookup(Map<String,Medicine> m,int reps){long t=System.nanoTime();for(int i=0;i<reps;i++)m.get("MED"+((i%Math.max(1,m.size()))));return System.nanoTime()-t;}
+ public static void main(String[] a){for(int n:new int[]{1000,10000,50000}){Map<String,Medicine> hash=new HashMap<>(),tree=new TreeMap<>(),linked=new LinkedHashMap<>();for(int i=0;i<n;i++){String c="MED"+i;Medicine x=new Medicine(c,i*2);hash.put(c,x);tree.put(c,x);linked.put(c,x);}int reps=100000;long h=lookup(hash,reps),t=lookup(tree,reps);long rh=System.nanoTime();new TreeMap<>(hash);long reportTree=System.nanoTime()-rh;long rl=System.nanoTime();for(Medicine m:linked.values()){}long reportInsertion=System.nanoTime()-rl;System.out.println("n="+n+" HashMap 100k lookup="+h+"ns TreeMap="+t+"ns sorted-copy report="+reportTree+"ns insertion-order traversal="+reportInsertion+"ns");System.out.println("First sorted key="+tree.keySet().iterator().next()+", first inserted="+linked.keySet().iterator().next());}}
+}

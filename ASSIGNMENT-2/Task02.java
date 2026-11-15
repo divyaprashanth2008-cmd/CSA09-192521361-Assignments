@@ -1,0 +1,6 @@
+import java.util.*;
+public class Task02 {
+ static long time(Runnable r){long t=System.nanoTime();r.run();return System.nanoTime()-t;}
+ static void test(int n){System.out.println("n="+n); for(String type:new String[]{"ArrayList","LinkedList"}){List<Integer> x=type.equals("ArrayList")?new ArrayList<>():new LinkedList<>(); long add=time(()->{for(int i=0;i<n;i++)x.add(i);}); long frontInsert=time(()->{for(int i=0;i<Math.min(1000,n);i++)x.add(0,-i);}); long middle=time(()->{for(int i=0;i<Math.min(1000,n);i++)x.add(x.size()/2,-i);}); long removeFront=time(()->{for(int i=0;i<Math.min(1000,n);i++)x.remove(0);}); long removeMiddle=time(()->{for(int i=0;i<Math.min(1000,n);i++)x.remove(x.size()/2);}); long random=time(()->{long s=0; for(int i=0;i<10000;i++)s+=x.get((i*97)%x.size()); if(s==Long.MIN_VALUE)System.out.print("");}); long iterate=time(()->{long s=0;for(int v:x)s+=v;if(s==Long.MIN_VALUE)System.out.print("");}); System.out.println(type+" add="+add+"ns front1000="+frontInsert+"ns middle1000="+middle+"ns removeFront1000="+removeFront+"ns removeMiddle1000="+removeMiddle+"ns get10000="+random+"ns iterate="+iterate+"ns");}}
+ public static void main(String[] a){for(int n:new int[]{1000,10000,50000})test(n); ArrayDeque<Integer> q=new ArrayDeque<>(); q.addFirst(2);q.addLast(3);q.addFirst(1);System.out.println("Deque front/back demo: "+q);}
+}

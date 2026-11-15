@@ -1,0 +1,6 @@
+import java.util.*;
+public class Task03 {
+ static class Student {final String regNo,name; Student(String r,String n){regNo=r;name=n;} public boolean equals(Object o){return o instanceof Student s && regNo.equals(s.regNo);} public int hashCode(){return Objects.hash(regNo);} }
+ static class Broken {final String regNo; Broken(String r){regNo=r;} public boolean equals(Object o){return o instanceof Broken b && regNo.equals(b.regNo);} }
+ public static void main(String[] a){Set<Broken> bad=new HashSet<>();bad.add(new Broken("CS01"));bad.add(new Broken("CS01"));System.out.println("Without hashCode override, same-ID set size (identity hashes may differ): "+bad.size()); Set<Student> good=new HashSet<>();good.add(new Student("CS01","A"));good.add(new Student("CS01","A duplicate"));good.add(new Student("CS02","B"));System.out.println("Corrected unique students: "+good.size()); String[] tests={"CS01","CS01","CS02"};Set<Student> verify=new HashSet<>();for(String id:tests)verify.add(new Student(id,"Name"));System.out.println("Three scans / unique IDs: "+verify.size()); TreeSet<Student> tree=new TreeSet<>(Comparator.comparing(s->s.regNo));for(Student s:good)tree.add(s);System.out.println("TreeSet size: "+tree.size());Map<String,Student> map=new HashMap<>();for(Student s:good)map.put(s.regNo,s);System.out.println("Map size: "+map.size());}
+}
