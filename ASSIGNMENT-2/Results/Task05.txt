@@ -1,0 +1,2 @@
+Ranking: [Eagles(12,8), Tigers(12,8), Falcons(12,5), Bears(9,4), Wolves(9,4)]
+Original insertion order unchanged: [Falcons(12,5), Tigers(12,8), Wolves(9,4), Eagles(12,8), Bears(9,4)]

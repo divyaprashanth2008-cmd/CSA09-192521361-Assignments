@@ -1,0 +1,6 @@
+n=1000 HashMap 100k lookup=36960534ns TreeMap=28704205ns sorted-copy report=947600ns insertion-order traversal=642948ns
+First sorted key=MED0, first inserted=MED0
+n=10000 HashMap 100k lookup=8646381ns TreeMap=39414167ns sorted-copy report=6764854ns insertion-order traversal=708278ns
+First sorted key=MED0, first inserted=MED0
+n=50000 HashMap 100k lookup=10666211ns TreeMap=37798017ns sorted-copy report=29767866ns insertion-order traversal=1530267ns
+First sorted key=MED0, first inserted=MED0

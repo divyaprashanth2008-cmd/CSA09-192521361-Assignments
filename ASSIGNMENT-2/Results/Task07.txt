@@ -1,0 +1,4 @@
+Input scans=100000, unique=50000
+Indexed HashSet approach=20238608ns
+Linear list membership approach=5837183168ns
+Note: run repeatedly; JVM warm-up and machine load affect timings.

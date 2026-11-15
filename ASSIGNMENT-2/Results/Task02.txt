@@ -1,0 +1,10 @@
+n=1000
+ArrayList add=345333ns front1000=582595ns middle1000=258758ns removeFront1000=447240ns removeMiddle1000=196054ns get10000=1576949ns iterate=239108ns
+LinkedList add=309339ns front1000=323817ns middle1000=4798716ns removeFront1000=250887ns removeMiddle1000=1495162ns get10000=7657991ns iterate=538541ns
+n=10000
+ArrayList add=647183ns front1000=851537ns middle1000=277932ns removeFront1000=851366ns removeMiddle1000=2037273ns get10000=657386ns iterate=647300ns
+LinkedList add=2146336ns front1000=99408ns middle1000=10780131ns removeFront1000=67741ns removeMiddle1000=8691690ns get10000=73305093ns iterate=1305395ns
+n=50000
+ArrayList add=5997358ns front1000=4113615ns middle1000=2051802ns removeFront1000=5377919ns removeMiddle1000=2392253ns get10000=1118593ns iterate=2822076ns
+LinkedList add=2070544ns front1000=96917ns middle1000=168587643ns removeFront1000=44530ns removeMiddle1000=56886568ns get10000=427361108ns iterate=1266296ns
+Deque front/back demo: [1, 2, 3]

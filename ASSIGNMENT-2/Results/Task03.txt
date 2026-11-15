@@ -1,0 +1,5 @@
+Without hashCode override, same-ID set size (identity hashes may differ): 2
+Corrected unique students: 2
+Three scans / unique IDs: 2
+TreeSet size: 2
+Map size: 2

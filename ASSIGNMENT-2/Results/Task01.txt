@@ -1,0 +1,5 @@
+fields,plus_ns,builder_ns,buffer_ns
+6,2192,1936,563
+50,9291,522,1761
+200,56416,1946,1932
+Shared log: synchronize access to a shared StringBuffer, or preferably use a dedicated logger; use local StringBuilder per ticket.
